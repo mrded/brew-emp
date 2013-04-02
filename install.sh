@@ -7,12 +7,18 @@ mysql_install_db --verbose --user=`whoami` --basedir="$(brew --prefix mysql)" --
 echo '✩✩✩✩ NGINX ✩✩✩✩'
 brew install nginx
 
-# @TODO: Download nginx.conf to /usr/local/etc/nginx/nginx.conf
-
+echo '-> Download configs'
 mkdir /usr/local/etc/nginx/{common,sites-available,sites-enabled}
-# @TODO: Download drupal to /usr/local/etc/nginx/common/drupal
 
-# @TODO: Download default to /usr/local/etc/nginx/sites-available/default 
+curl -o /usr/local/etc/nginx/nginx.conf https://raw.github.com/mrded/brew-emp/master/conf/nginx/nginx.conf
+
+curl -o /usr/local/etc/nginx/common/php https://raw.github.com/mrded/brew-emp/master/conf/nginx/common/php
+curl -o /usr/local/etc/nginx/common/drupal https://raw.github.com/mrded/brew-emp/master/conf/nginx/common/drupal
+
+# Download Virtual Hosts.
+curl -o /usr/local/etc/nginx/sites-available/default https://raw.github.com/mrded/brew-emp/master/conf/nginx/sites-available/default
+curl -o /usr/local/etc/nginx/sites-available/drupal.local https://raw.github.com/mrded/brew-emp/master/conf/nginx/sites-available/drupal.local
+
 ln -s /usr/local/etc/nginx/sites-available/default /usr/local/etc/nginx/sites-enabled/default
 
 # Create folder for logs.
