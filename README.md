@@ -9,8 +9,9 @@ This script will install and setup Nginx + MySQL + PHP through Homebrew.
 * The homebrew `dupes` tap - `brew tap homebrew/dupes`
  
 ## Installation
+Paste that at a Terminal prompt:
   
-    ./install.sh
+    curl -0 https://raw.github.com/mrded/brew-emp/master/install.sh | bash
 
 ## Usage
 
