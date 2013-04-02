@@ -4,7 +4,7 @@ This script will install and setup Nginx + MySQL + PHP through Homebrew.
 
 ## Requirements
 
-* Homebrew
+* [Homebrew](http://mxcl.github.com/homebrew/)
 * Snow Leopard, Lion, Mountain Lion. Untested everywhere else
 * The homebrew `dupes` tap - `brew tap homebrew/dupes`
  
