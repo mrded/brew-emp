@@ -24,3 +24,7 @@ brew tap josegonzalez/homebrew-php
 
 brew install freetype jpeg libpng gd
 brew install php53 --without-apache --with-mysql --with-fpm
+
+echo '✩✩✩✩ Drush ✩✩✩✩'
+brew install drush
+
