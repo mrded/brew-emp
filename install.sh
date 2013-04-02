@@ -36,3 +36,4 @@ brew install drush
 
 echo '✩✩✩✩ Brew-emp ✩✩✩✩'
 curl -o /usr/local/bin/brew-emp https://raw.github.com/mrded/brew-emp/master/bin/brew-emp
+chmod 755 /usr/local/bin/brew-emp
