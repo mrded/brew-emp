@@ -34,3 +34,5 @@ brew install php53 --without-apache --with-mysql --with-fpm
 echo '✩✩✩✩ Drush ✩✩✩✩'
 brew install drush
 
+echo '✩✩✩✩ Brew-emp ✩✩✩✩'
+curl -o /usr/local/bin/brew-emp https://raw.github.com/mrded/brew-emp/master/bin/brew-emp

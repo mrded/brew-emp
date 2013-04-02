@@ -1,0 +1,28 @@
+#!/bin/bash
+
+case "$1" in
+"start")
+    mysql.server start
+    sudo nginx
+    sudo /usr/local/sbin/php-fpm&
+    ;;
+"stop")
+    mysql.server stop
+    sudo nginx -s stop
+    sudo pkill php-fpm
+    ;;
+"restart")
+    mysql.server stop
+    mysql.server start
+
+    sudo nginx -s stop
+    sudo nginx
+
+    sudo pkill php-fpm
+    sudo /usr/local/sbin/php-fpm&
+    ;;
+*)
+    echo 'Usage: brew-emp [start | stop | restart]'
+    ;;
+esac
+
