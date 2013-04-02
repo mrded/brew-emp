@@ -14,10 +14,20 @@ This script will install and setup Nginx + MySQL + PHP through Homebrew.
 
 ## Usage
 
-Start:
+To start: `./start.sh`
 
-    ./start.sh
+To stop: `./stop.sh`
 
-Stop:
+## Configs
 
-    ./stop.sh
+### Nginx
+`/usr/local/etc/nginx/nginx.conf`
+
+### FastCGI
+`/usr/local/etc/nginx/fastcgi.conf`
+
+### PHP
+`/usr/local/etc/php/5.3/php.ini`
+
+### MySQL
+`/usr/local/opt/mysql/my.cnf`
