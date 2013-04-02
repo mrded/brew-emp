@@ -14,10 +14,7 @@ Paste that at a Terminal prompt:
     curl -0 https://raw.github.com/mrded/brew-emp/master/install.sh | bash
 
 ## Usage
-
-To start: `./start.sh`
-
-To stop: `./stop.sh`
+`brew-emp [start | stop | restart]`
 
 ## Configs
 
