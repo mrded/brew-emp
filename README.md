@@ -16,6 +16,32 @@ Paste that at a Terminal prompt:
 ## Usage
 `brew-emp [start | stop | restart]`
 
+## Creating VirtualHost
+For example let's create virtual host for Drupal 'mysite'.
+
+Copy Drupal preset:
+`cp /usr/local/etc/nginx/sites-available/drupal.local /usr/local/etc/nginx/sites-available/mysite.local`
+    
+Change name and path to site: 
+`vim /usr/local/etc/nginx/sites-available/mysite.local`
+    
+    
+    server {
+      listen       80;
+      server_name  mysite.local;
+      root /Users/mrded/Sites/mysite;
+
+      access_log /usr/local/var/log/nginx/mysite.access.log;
+      error_log  /usr/local/var/log/nginx/mysite.error.log;
+
+      include /usr/local/etc/nginx/common/drupal;
+    }
+
+Enable virtual host:
+`ln -s /usr/local/etc/nginx/sites-available/mysite.local /usr/local/etc/nginx/sites-enabled/mysite.local`
+
+Add `127.0.0.1 mysite.local` to `/etc/hosts`.
+
 ## Configs
 
 ### Nginx
