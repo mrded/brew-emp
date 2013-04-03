@@ -53,5 +53,8 @@ Add `127.0.0.1 mysite.local` to `/etc/hosts`.
 ### PHP
 `/usr/local/etc/php/5.3/php.ini`
 
+### Xdebug
+`/usr/local/etc/php/5.3/conf.d/ext-xdebug.ini`
+
 ### MySQL
 `/usr/local/opt/mysql/my.cnf`
