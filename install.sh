@@ -34,6 +34,11 @@ brew install php53 --without-apache --with-mysql --with-fpm
 echo '✩✩✩✩ Xdebug ✩✩✩✩'
 brew install php53-xdebug
 
+echo 'xdebug.remote_enable=On' >>  /usr/local/etc/php/5.3/conf.d/ext-xdebug.ini
+echo 'xdebug.remote_host="localhost"' >>  /usr/local/etc/php/5.3/conf.d/ext-xdebug.ini
+echo 'xdebug.remote_port=9002' >>  /usr/local/etc/php/5.3/conf.d/ext-xdebug.ini
+echo 'xdebug.remote_handler="dbgp"' >>  /usr/local/etc/php/5.3/conf.d/ext-xdebug.ini
+
 echo '✩✩✩✩ Drush ✩✩✩✩'
 brew install drush
 
