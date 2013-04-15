@@ -31,6 +31,9 @@ brew tap josegonzalez/homebrew-php
 brew install freetype jpeg libpng gd
 brew install php53 --without-apache --with-mysql --with-fpm
 
+echo '✩✩✩✩ Memcached ✩✩✩✩'
+brew install php53-memcached
+
 echo '✩✩✩✩ Xdebug ✩✩✩✩'
 brew install php53-xdebug
 
