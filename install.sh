@@ -1,5 +1,8 @@
 #!/bin/bash
+
+echo '✩✩✩✩ Add Repositories ✩✩✩✩'
 brew tap homebrew/dupes
+brew tap josegonzalez/homebrew-php
 brew update
 
 echo '✩✩✩✩ MYSQL ✩✩✩✩'
@@ -27,9 +30,6 @@ ln -s /usr/local/etc/nginx/sites-available/default /usr/local/etc/nginx/sites-en
 mkdir -p /usr/local/var/log/{fpm,nginx}
 
 echo '✩✩✩✩ PHP + FPM ✩✩✩✩'
-brew tap homebrew/dupes
-brew tap josegonzalez/homebrew-php
-
 brew install freetype jpeg libpng gd
 brew install php53 --without-apache --with-mysql --with-fpm
 
