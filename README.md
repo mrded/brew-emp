@@ -1,5 +1,9 @@
 # Homebrew (E)Nginx MySQL PHP Installer
 
+Native way to setup web environment. 
+
+## Overview
+
 This script will install and setup Nginx + MySQL + PHP through Homebrew.
 
 ## Requirements
