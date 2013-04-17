@@ -1,4 +1,6 @@
 #!/bin/bash
+brew tap homebrew/dupes
+brew update
 
 echo '✩✩✩✩ MYSQL ✩✩✩✩'
 brew install mysql
