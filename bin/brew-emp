@@ -13,7 +13,8 @@ case "$1" in
     sudo pkill {php-fpm,memcached}
     ;;
 "restart")
-    mysql.server {stop,start}
+    mysql.server stop
+    mysql.server start
 
     sudo nginx -s stop
     sudo nginx
