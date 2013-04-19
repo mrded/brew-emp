@@ -45,6 +45,18 @@ Enable virtual host:
 
 Add `127.0.0.1 mysite.local` to `/etc/hosts`.
 
+## Default Settings
+
+### MySQL
+Username: root
+
+Password:
+
+Port: 3306
+
+### Xdebug
+Remote port is 9002
+
 ## Configs
 
 ### Nginx
