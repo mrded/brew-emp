@@ -3,8 +3,8 @@ server {
     server_name  drupal.local;
     root /Users/mrded/Sites/drupal;
 
-    access_log /usr/local/var/log/nginx/drupal.access.log;
-    error_log  /usr/local/var/log/nginx/drupal.error.log;
+    #access_log /usr/local/var/log/nginx/drupal.access.log;
+    #error_log  /usr/local/var/log/nginx/drupal.error.log;
 
     include /usr/local/etc/nginx/common/drupal; 
 }
