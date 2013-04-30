@@ -1,6 +1,8 @@
 #!/bin/bash
 
 case "$1" in
+"php52")
+  PHP_VERSION='52' ;;
 "php53")
   PHP_VERSION='53' ;;
 "php53")
@@ -52,6 +54,8 @@ echo '✩✩✩✩ Xdebug ✩✩✩✩'
 brew install php${PHP_VERSION}-xdebug
 
 case "${PHP_VERSION}" in
+"52")
+  DOT_VERSION='5.2' ;;
 "53")
   DOT_VERSION='5.3' ;;
 "54")
