@@ -1,9 +1,9 @@
 #!/bin/bash
 
 case "$1" in
-"53")
+"php53")
   PHP_VERSION='53' ;;
-"54")
+"php53")
   PHP_VERSION='54' ;;
 *)
   PHP_VERSION='54' ;;
