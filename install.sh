@@ -41,6 +41,7 @@ curl -o /usr/local/etc/nginx/sites-available/drupal.local https://raw.github.com
 ln -s /usr/local/etc/nginx/sites-available/default /usr/local/etc/nginx/sites-enabled/default
 
 # Create folder for logs.
+rm -rf /usr/local/var/log/{fpm,nginx}
 mkdir -p /usr/local/var/log/{fpm,nginx}
 
 echo '✩✩✩✩ PHP + FPM ✩✩✩✩'
