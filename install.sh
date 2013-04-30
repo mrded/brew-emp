@@ -46,6 +46,7 @@ mkdir -p /usr/local/var/log/{fpm,nginx}
 echo '✩✩✩✩ PHP + FPM ✩✩✩✩'
 brew install freetype jpeg libpng gd
 brew install php${PHP_VERSION} --without-apache --with-mysql --with-fpm
+brew link --overwrite php${PHP_VERSION}
 
 echo '✩✩✩✩ Memcached ✩✩✩✩'
 brew install php${PHP_VERSION}-memcached
