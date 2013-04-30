@@ -1,5 +1,17 @@
 #!/bin/bash
 
+case "$1" in
+"53")
+  PHP_VERSION='53' ;;
+"54")
+  PHP_VERSION='54' ;;
+*)
+  PHP_VERSION='54' ;;
+esac
+
+echo "Your choice is PHP${PHP_VERSION}!"
+echo "----- ✄ -----------------------"
+
 echo '✩✩✩✩ Add Repositories ✩✩✩✩'
 brew tap homebrew/dupes
 brew tap josegonzalez/homebrew-php
@@ -31,18 +43,25 @@ mkdir -p /usr/local/var/log/{fpm,nginx}
 
 echo '✩✩✩✩ PHP + FPM ✩✩✩✩'
 brew install freetype jpeg libpng gd
-brew install php53 --without-apache --with-mysql --with-fpm
+brew install php${PHP_VERSION} --without-apache --with-mysql --with-fpm
 
 echo '✩✩✩✩ Memcached ✩✩✩✩'
-brew install php53-memcached
+brew install php${PHP_VERSION}-memcached
 
 echo '✩✩✩✩ Xdebug ✩✩✩✩'
-brew install php53-xdebug
+brew install php${PHP_VERSION}-xdebug
 
-echo 'xdebug.remote_enable=On' >>  /usr/local/etc/php/5.3/conf.d/ext-xdebug.ini
-echo 'xdebug.remote_host="localhost"' >>  /usr/local/etc/php/5.3/conf.d/ext-xdebug.ini
-echo 'xdebug.remote_port=9002' >>  /usr/local/etc/php/5.3/conf.d/ext-xdebug.ini
-echo 'xdebug.remote_handler="dbgp"' >>  /usr/local/etc/php/5.3/conf.d/ext-xdebug.ini
+case "${PHP_VERSION}" in
+"53")
+  DOT_VERSION='5.3' ;;
+"54")
+  DOT_VERSION='5.4' ;;
+esac
+
+echo 'xdebug.remote_enable=On' >>  /usr/local/etc/php/${DOT_VERSION}/conf.d/ext-xdebug.ini
+echo 'xdebug.remote_host="localhost"' >>  /usr/local/etc/php/${DOT_VERSION}/conf.d/ext-xdebug.ini
+echo 'xdebug.remote_port=9002' >>  /usr/local/etc/php/${DOT_VERSION}/conf.d/ext-xdebug.ini
+echo 'xdebug.remote_handler="dbgp"' >>  /usr/local/etc/php/${DOT_VERSION}/conf.d/ext-xdebug.ini
 
 echo '✩✩✩✩ Drush ✩✩✩✩'
 brew install drush
