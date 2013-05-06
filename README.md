@@ -18,15 +18,15 @@ Choose one and paste that at a Terminal prompt:
 
 ### PHP52
   
-    curl -0 https://raw.github.com/mrded/brew-emp/master/install.sh php52 | bash
+    curl -L https://raw.github.com/mrded/brew-emp/master/install.sh php52 | bash
     
 ### PHP53
   
-    curl -0 https://raw.github.com/mrded/brew-emp/master/install.sh php53 | bash
+    curl -L https://raw.github.com/mrded/brew-emp/master/install.sh php53 | bash
     
 ### PHP54
   
-    curl -0 https://raw.github.com/mrded/brew-emp/master/install.sh php54 | bash
+    curl -L https://raw.github.com/mrded/brew-emp/master/install.sh php54 | bash
 
 ## Usage
 `brew-emp [start | stop | restart]`
