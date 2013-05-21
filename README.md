@@ -71,17 +71,14 @@ Remote port is 9002
 
 ## Configs
 
-### Nginx
-`/usr/local/etc/nginx/nginx.conf`
+**Nginx**: `/usr/local/etc/nginx/nginx.conf`
 
-### FastCGI
-`/usr/local/etc/nginx/fastcgi.conf`
+**FastCGI**: `/usr/local/etc/nginx/fastcgi.conf`
 
-### PHP
-`/usr/local/etc/php/5.3/php.ini`
+**PHP**: `/usr/local/etc/php/5.3/php.ini`
 
-### Xdebug
-`/usr/local/etc/php/5.3/conf.d/ext-xdebug.ini`
+**Redis**: `/usr/local/etc/redis.conf`
 
-### MySQL
-`/usr/local/opt/mysql/my.cnf`
+**Xdebug**: `/usr/local/etc/php/5.3/conf.d/ext-xdebug.ini`
+
+**MySQL**: `/usr/local/opt/mysql/my.cnf`
