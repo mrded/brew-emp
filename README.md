@@ -81,4 +81,4 @@ Remote port is 9002
 
 **Xdebug**: `/usr/local/etc/php/5.3/conf.d/ext-xdebug.ini`
 
-**MySQL**: `/usr/local/opt/mysql/my.cnf`
+**MySQL**: `$(brew --prefix mysql)/my.cnf`
