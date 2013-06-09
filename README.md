@@ -14,19 +14,7 @@ This script will install and setup **Nginx** + **MySQL** + **PHP** through **Hom
 * Snow Leopard, Lion, Mountain Lion. Untested everywhere else
  
 ## Installation
-Choose one and paste that at a Terminal prompt:
-
-### PHP52
-  
-    curl -L https://raw.github.com/mrded/brew-emp/master/install.sh php52 | bash
-    
-### PHP53
-  
-    curl -L https://raw.github.com/mrded/brew-emp/master/install.sh php53 | bash
-    
-### PHP54
-  
-    curl -L https://raw.github.com/mrded/brew-emp/master/install.sh php54 | bash
+`curl -L https://raw.github.com/mrded/brew-emp/master/install.sh | bash`
 
 ## Usage
 `brew-emp [start | stop | restart]`
