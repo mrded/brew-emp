@@ -70,3 +70,7 @@ Remote port is 9002
 **Xdebug**: `/usr/local/etc/php/5.3/conf.d/ext-xdebug.ini`
 
 **MySQL**: `$(brew --prefix mysql)/my.cnf`
+
+### Handy projects
+* [launchrocket](https://github.com/jimbojsb/launchrocket) - a PrefPane to manage all your Homebrew-installed services.
+* [Hosts.prefpane](https://github.com/specialunderwear/Hosts.prefpane) - a PrefPane to manage /etc/hosts
