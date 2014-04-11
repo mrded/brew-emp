@@ -5,10 +5,12 @@ case "$1" in
   PHP_VERSION='52' ;;
 "php53")
   PHP_VERSION='53' ;;
-"php53")
+"php54")
   PHP_VERSION='54' ;;
+"php55")
+  PHP_VERSION='55' ;;
 *)
-  PHP_VERSION='54' ;;
+  PHP_VERSION='55' ;;
 esac
 
 echo "Your choice is PHP${PHP_VERSION}!"
@@ -68,6 +70,8 @@ case "${PHP_VERSION}" in
   DOT_VERSION='5.3' ;;
 "54")
   DOT_VERSION='5.4' ;;
+"55")
+  DOT_VERSION='5.5' ;;
 esac
 
 echo 'xdebug.remote_enable=On' >>  /usr/local/etc/php/${DOT_VERSION}/conf.d/ext-xdebug.ini
