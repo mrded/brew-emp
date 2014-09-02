@@ -27,17 +27,16 @@
     <div class="container">
       <section id="main_content">
         <h3>
-<a name="welcome-to-github-pages" class="anchor" href="#welcome-to-github-pages"><span class="octicon octicon-link"></span></a>There's the native installer of web environment for Mac.</h3>
-
-<p>This script will install and setup Nginx + MySQL + PHP through Homebrew.</p>
+<p>There's the native installer of web environment for Mac.</p>
 
 <h3>Requirements</h3>
 <ul>
   <li><a href="http://mxcl.github.com/homebrew/">Homebrew</a></li>
-  <li>Snow Leopard, Lion, Mountain Lion. Untested everywhere else</li>
+  <li>Snow Leopard, Lion, Mountain Lion, Mavricks, Untested everywhere else</li>
 </ul>
 
 <h3>Installation</h3>
+<p>This script will install and setup Nginx + MySQL + PHP through Homebrew.</p>
 <pre><code>curl -L https://raw.github.com/mrded/brew-emp/master/install.sh | bash</code></pre>
 
 <h3>Usage</h3>
@@ -50,9 +49,6 @@
 <pre><code>cp /usr/local/etc/nginx/sites-available/drupal.local /usr/local/etc/nginx/sites-available/mysite.local</code></pre>
 
 <p>Change name and path to site:</p>
-<pre><code>vim /usr/local/etc/nginx/sites-available/mysite.local</code></pre>
-
-
 <pre><code>
 server {
   listen       80;
@@ -68,27 +64,27 @@ server {
 
 <p>Enable virtual host</p>
 <pre><code>ln -s /usr/local/etc/nginx/sites-available/mysite.local /usr/local/etc/nginx/sites-enabled/mysite.local</code></pre>
-
 <p>Add 127.0.0.1 mysite.local to /etc/hosts</p>
 
-
 <h3>Default Settings</h3>
-<h4>MySQL</h4>
+
+<p><strong>MySQL</strong><br/>
 Username: root<br/>
 Password: {empty}<br/>
-Port: 3306
+Port: 3306</p>
 
-<h4>Xdebug</h4>
-Remote port is 9002
+<p><strong>Xdebug</strong>
+Remote port is 9002</p>
 
-<h4>Configs</h4>
+<h3>Configs</h3>
+<p>
 <strong>Nginx:</strong> /usr/local/etc/nginx/nginx.conf<br/>
 <strong>FastCGI:</strong> /usr/local/etc/nginx/fastcgi.conf<br/>
 <strong>PHP:</strong> /usr/local/etc/php/5.3/php.ini<br/>
 <strong>Redis:</strong> /usr/local/etc/redis.conf<br/>
 <strong>Xdebug:</strong> /usr/local/etc/php/5.3/conf.d/ext-xdebug.ini<br/>
 <strong>MySQL:</strong> $(brew --prefix mysql)/my.cnf
-
+</p>
       </section>
     </div>
 
