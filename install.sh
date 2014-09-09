@@ -31,14 +31,14 @@ brew install nginx
 echo '-> Download configs'
 mkdir /usr/local/etc/nginx/{common,sites-available,sites-enabled}
 
-curl -o /usr/local/etc/nginx/nginx.conf https://raw.github.com/mrded/brew-emp/master/conf/nginx/nginx.conf
+curl -Lo /usr/local/etc/nginx/nginx.conf https://raw.github.com/mrded/brew-emp/master/conf/nginx/nginx.conf
 
-curl -o /usr/local/etc/nginx/common/php https://raw.github.com/mrded/brew-emp/master/conf/nginx/common/php
-curl -o /usr/local/etc/nginx/common/drupal https://raw.github.com/mrded/brew-emp/master/conf/nginx/common/drupal
+curl -Lo /usr/local/etc/nginx/common/php https://raw.github.com/mrded/brew-emp/master/conf/nginx/common/php
+curl -Lo /usr/local/etc/nginx/common/drupal https://raw.github.com/mrded/brew-emp/master/conf/nginx/common/drupal
 
 # Download Virtual Hosts.
-curl -o /usr/local/etc/nginx/sites-available/default https://raw.github.com/mrded/brew-emp/master/conf/nginx/sites-available/default
-curl -o /usr/local/etc/nginx/sites-available/drupal.local https://raw.github.com/mrded/brew-emp/master/conf/nginx/sites-available/drupal.local
+curl -Lo /usr/local/etc/nginx/sites-available/default https://raw.github.com/mrded/brew-emp/master/conf/nginx/sites-available/default
+curl -Lo /usr/local/etc/nginx/sites-available/drupal.local https://raw.github.com/mrded/brew-emp/master/conf/nginx/sites-available/drupal.local
 
 ln -s /usr/local/etc/nginx/sites-available/default /usr/local/etc/nginx/sites-enabled/default
 
@@ -83,5 +83,5 @@ echo '✩✩✩✩ Drush ✩✩✩✩'
 brew install drush
 
 echo '✩✩✩✩ Brew-emp ✩✩✩✩'
-curl -o /usr/local/bin/brew-emp https://raw.github.com/mrded/brew-emp/master/bin/brew-emp
+curl -Lo /usr/local/bin/brew-emp https://raw.github.com/mrded/brew-emp/master/bin/brew-emp
 chmod 755 /usr/local/bin/brew-emp
