@@ -76,6 +76,8 @@ case "${PHP_VERSION}" in
   DOT_VERSION='5.4' ;;
 "55")
   DOT_VERSION='5.5' ;;
+"56")
+  DOT_VERSION='5.6' ;;
 esac
 
 echo 'xdebug.remote_enable=On' >>  /usr/local/etc/php/${DOT_VERSION}/conf.d/ext-xdebug.ini
