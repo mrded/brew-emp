@@ -61,6 +61,7 @@ echo "source /usr/local/phpbrew/bashrc" >> ~/.zshrc
 source ~/.bashrc
 source ~/.zshrc
 phpbrew install 5.4.26
+phpbrew switch 5.4.26
 
 echo '✩✩✩✩ Memcached ✩✩✩✩'
 brew install php${PHP_VERSION}-memcached
