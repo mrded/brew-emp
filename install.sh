@@ -19,6 +19,7 @@ echo "----- ✄ -----------------------"
 echo '✩✩✩✩ Add Repositories ✩✩✩✩'
 brew tap homebrew/dupes
 brew tap josegonzalez/homebrew-php
+brew tap chadrien/homebrew-phpbrew
 brew update
 
 echo '✩✩✩✩ MYSQL ✩✩✩✩'
@@ -50,6 +51,16 @@ echo '✩✩✩✩ PHP + FPM ✩✩✩✩'
 brew install freetype jpeg libpng gd
 brew install php${PHP_VERSION} --without-apache --with-mysql --with-fpm
 brew link --overwrite php${PHP_VERSION}
+
+echo '✩✩✩✩ PHPBrew ✩✩✩✩'
+brew install phpbrew
+source $(brew --prefix)/opt/phpbrew/phpbrew
+phpbrew init
+echo "source /usr/local/phpbrew/bashrc" >> ~/.bashrc
+echo "source /usr/local/phpbrew/bashrc" >> ~/.zshrc
+source ~/.bashrc
+source ~/.zshrc
+phpbrew install 5.4.26
 
 echo '✩✩✩✩ Memcached ✩✩✩✩'
 brew install php${PHP_VERSION}-memcached
