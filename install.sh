@@ -60,7 +60,7 @@ echo "source /usr/local/phpbrew/bashrc" >> ~/.bashrc
 echo "source /usr/local/phpbrew/bashrc" >> ~/.zshrc
 source ~/.bashrc
 source ~/.zshrc
-phpbrew install 5.4.33
+phpbrew install 5.4.33 +mysql +fpm
 phpbrew switch 5.4.33
 
 echo '✩✩✩✩ Memcached ✩✩✩✩'
