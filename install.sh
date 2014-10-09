@@ -47,11 +47,6 @@ ln -s /usr/local/etc/nginx/sites-available/default /usr/local/etc/nginx/sites-en
 rm -rf /usr/local/var/log/{fpm,nginx}
 mkdir -p /usr/local/var/log/{fpm,nginx}
 
-echo '✩✩✩✩ PHP + FPM ✩✩✩✩'
-brew install freetype jpeg libpng gd
-brew install php${PHP_VERSION} --without-apache --with-mysql --with-fpm
-brew link --overwrite php${PHP_VERSION}
-
 echo '✩✩✩✩ PHPBrew ✩✩✩✩'
 brew install phpbrew
 source $(brew --prefix)/opt/phpbrew/phpbrew
@@ -63,17 +58,14 @@ source ~/.zshrc
 phpbrew install 5.4.33 +mysql +fpm
 phpbrew switch 5.4.33
 
-echo '✩✩✩✩ Memcached ✩✩✩✩'
-brew install php${PHP_VERSION}-memcached
+echo '✩✩✩✩ Memcache ✩✩✩✩'
+phpbrew ext install memcache
 
 echo '✩✩✩✩ Redis ✩✩✩✩'
-brew install redis php${PHP_VERSION}-redis
-
-echo '✩✩✩✩ Solr ✩✩✩✩'
-brew install solr
+phpbrew ext install redis
 
 echo '✩✩✩✩ Xdebug ✩✩✩✩'
-brew install php${PHP_VERSION}-xdebug
+phpbrew ext install xdebug stable
 
 case "${PHP_VERSION}" in
 "52")
