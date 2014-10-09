@@ -65,7 +65,7 @@ echo '✩✩✩✩ Redis ✩✩✩✩'
 phpbrew ext install redis
 
 echo '✩✩✩✩ Xdebug ✩✩✩✩'
-phpbrew ext install xdebug stable
+phpbrew ext install xdebug
 
 case "${PHP_VERSION}" in
 "52")
