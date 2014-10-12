@@ -51,8 +51,8 @@ echo '✩✩✩✩ PHPBrew ✩✩✩✩'
 brew install phpbrew
 source $(brew --prefix)/opt/phpbrew/phpbrew
 phpbrew init
-echo "source /usr/local/phpbrew/bashrc" >> ~/.bashrc
-echo "source /usr/local/phpbrew/bashrc" >> ~/.zshrc
+echo "source /usr/local/phpbrew/bashrc\nPHPBREW_HOME='/usr/local/phpbrew'" >> ~/.bashrc
+echo "source /usr/local/phpbrew/bashrc\nPHPBREW_HOME='/usr/local/phpbrew'" >> ~/.zshrc
 source ~/.bashrc
 source ~/.zshrc
 phpbrew install 5.4.33 +mysql +fpm
