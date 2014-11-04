@@ -47,7 +47,7 @@ Add `127.0.0.1 mysite.local` to `/etc/hosts`.
 
 ## Xhgui
 
-Xhqui is a graphical interface for XHProf data built on MongoDB.
+[Xhqui](https://github.com/perftools/xhgui) is a graphical interface for XHProf data built on MongoDB.
 
 Update you mongodb configuration (username, password, host and/or port) if you're not using the default values:
 
