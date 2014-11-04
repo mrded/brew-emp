@@ -73,6 +73,17 @@ Remote port is 9002
 
 Source code: `/usr/local/Cellar/php54-xhprof/`
 
+**xhgui**: `/usr/local/Cellar/php54-xhgui/ee00acb/web/config/config.php`
+
+Add indexes to mongodb for increased for performance:
+
+    $ mongo xhprof
+    db.results.ensureIndex( { 'meta.SERVER.REQUEST_TIME' : -1 } )
+    db.results.ensureIndex( { 'profile.main().wt' : -1 } )
+    db.results.ensureIndex( { 'profile.main().mu' : -1 } )
+    db.results.ensureIndex( { 'profile.main().cpu' : -1 } )
+    db.results.ensureIndex( { 'meta.url' : 1 } )
+
 **MySQL**: `$(brew --prefix mysql)/my.cnf`
 
 ### Handy projects
