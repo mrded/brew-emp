@@ -80,8 +80,14 @@ echo 'xdebug.remote_port=9002' >>  /usr/local/etc/php/${DOT_VERSION}/conf.d/ext-
 echo 'xdebug.remote_handler="dbgp"' >>  /usr/local/etc/php/${DOT_VERSION}/conf.d/ext-xdebug.ini
 
 echo '✩✩✩✩ Xhprof ✩✩✩✩'
-brew install redis php${PHP_VERSION}-xhprof php${PHP_VERSION}-xhgui
+brew install redis php${PHP_VERSION}-xhprof
 echo 'xhprof.output_dir=/tmp' >>  /usr/local/etc/php/${DOT_VERSION}/conf.d/ext-xhprof.ini
+
+echo '✩✩✩✩ Mongo (for Xhprof) ✩✩✩✩'
+brew install mongodb
+
+echo '✩✩✩✩ Xhprof ✩✩✩✩'
+brew install php${PHP_VERSION}-xhgui
 
 echo '✩✩✩✩ Drush ✩✩✩✩'
 brew install drush
