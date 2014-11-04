@@ -45,6 +45,34 @@ Enable virtual host:
 
 Add `127.0.0.1 mysite.local` to `/etc/hosts`.
 
+## Xhgui
+
+Xhqui is a graphical interface for XHProf data built on MongoDB.
+
+Update you mongodb configuration (username, password, host and/or port) if you're not using the default values:
+
+    /usr/local/Cellar/php54-xhgui/ee00acb/web/config/config.php
+
+Add indexes to mongodb for increased for performance:
+
+    $ mongo xhprof
+    db.results.ensureIndex( { 'meta.SERVER.REQUEST_TIME' : -1 } )
+    db.results.ensureIndex( { 'profile.main().wt' : -1 } )
+    db.results.ensureIndex( { 'profile.main().mu' : -1 } )
+    db.results.ensureIndex( { 'profile.main().cpu' : -1 } )
+    db.results.ensureIndex( { 'meta.url' : 1 } )
+
+For system wide random profiling, you can add the following directive in php.ini:
+
+    auto_prepend_file=/usr/local/Cellar/php54-xhgui/ee00acb/external/header.php
+
+If you prefer to configure profiling per virtual host:
+
+    server {
+      # ..
+      fastcgi_param PHP_VALUE "auto_prepend_file=/usr/local/Cellar/php54-xhgui/ee00acb/external/header.php";
+    }
+
 ## Default Settings
 
 ### MySQL
@@ -74,15 +102,6 @@ Remote port is 9002
 Source code: `/usr/local/Cellar/php54-xhprof/`
 
 **xhgui**: `/usr/local/Cellar/php54-xhgui/ee00acb/web/config/config.php`
-
-Add indexes to mongodb for increased for performance:
-
-    $ mongo xhprof
-    db.results.ensureIndex( { 'meta.SERVER.REQUEST_TIME' : -1 } )
-    db.results.ensureIndex( { 'profile.main().wt' : -1 } )
-    db.results.ensureIndex( { 'profile.main().mu' : -1 } )
-    db.results.ensureIndex( { 'profile.main().cpu' : -1 } )
-    db.results.ensureIndex( { 'meta.url' : 1 } )
 
 **MySQL**: `$(brew --prefix mysql)/my.cnf`
 
