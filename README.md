@@ -70,7 +70,8 @@ Remote port is 9002
 **Xdebug**: `/usr/local/etc/php/5.4/conf.d/ext-xdebug.ini`
 
 **xhprof**: `/usr/local/etc/php/5.4/conf.d/ext-xhprof.ini`
-Sorce code: `/usr/local/Cellar/php54-xhprof/`
+
+Source code: `/usr/local/Cellar/php54-xhprof/`
 
 **MySQL**: `$(brew --prefix mysql)/my.cnf`
 
