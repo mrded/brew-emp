@@ -5,6 +5,7 @@ case "$1" in
     mysql.server start
     sudo nginx
     sudo /usr/local/sbin/php-fpm&
+    mongod&
     redis-server /usr/local/etc/redis.conf&
     memcached -d -m 30 -l 127.0.0.1 -p 11211
     java -jar $(brew --prefix solr)/libexec/example/start.jar&
@@ -13,6 +14,7 @@ case "$1" in
     mysql.server stop
     sudo nginx -s stop
     sudo pkill {php-fpm,memcached,redis-server}
+    sudo pkill mongod
     ;;
 "restart")
     mysql.server stop
