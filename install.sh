@@ -86,6 +86,7 @@ echo 'xhprof.output_dir=/tmp' >>  /usr/local/etc/php/${DOT_VERSION}/conf.d/ext-x
 echo '✩✩✩✩ Mongo (for Xhprof) ✩✩✩✩'
 brew install mongodb
 sudo mkdir -p /data/db
+sudo chown -R `id -u` /data/db
 
 echo '✩✩✩✩ Xhprof ✩✩✩✩'
 brew install php${PHP_VERSION}-xhgui
