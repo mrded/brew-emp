@@ -79,6 +79,9 @@ echo 'xdebug.remote_host="localhost"' >>  /usr/local/etc/php/${DOT_VERSION}/conf
 echo 'xdebug.remote_port=9002' >>  /usr/local/etc/php/${DOT_VERSION}/conf.d/ext-xdebug.ini
 echo 'xdebug.remote_handler="dbgp"' >>  /usr/local/etc/php/${DOT_VERSION}/conf.d/ext-xdebug.ini
 
+echo '✩✩✩✩ Xhprof ✩✩✩✩'
+brew install redis php${PHP_VERSION}-xhprof
+
 echo '✩✩✩✩ Drush ✩✩✩✩'
 brew install drush
 
