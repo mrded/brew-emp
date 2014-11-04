@@ -63,11 +63,13 @@ Remote port is 9002
 
 **FastCGI**: `/usr/local/etc/nginx/fastcgi.conf`
 
-**PHP**: `/usr/local/etc/php/5.3/php.ini`
+**PHP**: `/usr/local/etc/php/5.4/php.ini`
 
 **Redis**: `/usr/local/etc/redis.conf`
 
-**Xdebug**: `/usr/local/etc/php/5.3/conf.d/ext-xdebug.ini`
+**Xdebug**: `/usr/local/etc/php/5.4/conf.d/ext-xdebug.ini`
+
+**xhprof**: `/usr/local/etc/php/5.4/conf.d/ext-xhprof.ini`
 
 **MySQL**: `$(brew --prefix mysql)/my.cnf`
 
