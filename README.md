@@ -49,9 +49,9 @@ Add `127.0.0.1 mysite.local` to `/etc/hosts`.
 
     drush dl devel
     drush en devel
-    drush vset devel_xhprof_enabled 1
     drush vset devel_xhprof_directory "/usr/local/Cellar/php54-xhprof/254eb24"
     drush vset devel_xhprof_url "http://xhprof.local"
+    drush vset devel_xhprof_enabled 1
 
 ## Xhgui
 
