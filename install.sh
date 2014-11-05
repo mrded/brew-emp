@@ -85,6 +85,10 @@ mkdir /tmp/xhprof
 chmod 777 /tmp/xhprof
 echo 'xhprof.output_dir=/tmp/xhprof' >>  /usr/local/etc/php/${DOT_VERSION}/conf.d/ext-xhprof.ini
 
+curl -Lo /usr/local/etc/nginx/sites-available/xhprof.local https://raw.github.com/mrded/brew-emp/master/conf/nginx/sites-available/xhprof.local
+ln -s /usr/local/etc/nginx/sites-available/xhprof.local /usr/local/etc/nginx/sites-enabled/xhprof.local
+sudo echo '127.0.0.1 xhprof.local' >>  /etc/hosts
+
 echo '✩✩✩✩ Mongo (for Xhprof) ✩✩✩✩'
 brew install mongodb
 sudo mkdir -p /data/db
