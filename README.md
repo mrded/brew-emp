@@ -45,6 +45,14 @@ Enable virtual host:
 
 Add `127.0.0.1 mysite.local` to `/etc/hosts`.
 
+## Enable Xhprof with Drupal 7
+
+    drush dl devel
+    drush en devel
+    drush vset devel_xhprof_enabled 1
+    drush vset devel_xhprof_directory "/usr/local/Cellar/php54-xhprof/254eb24"
+    drush vset devel_xhprof_url "http://xhprof.local"
+
 ## Xhgui
 
 [Xhqui](https://github.com/perftools/xhgui) is a graphical interface for XHProf data built on MongoDB.
