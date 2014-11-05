@@ -1,0 +1,9 @@
+server {
+    listen       80;
+    server_name  xhprof.local;
+    root         /usr/local/Cellar/php54-xhprof/254eb24/xhprof_html;
+
+    include      /usr/local/etc/nginx/common/php;
+    index        index.html index.htm index.php; 
+    location ~ ^.*\.(css|js|gif)$ {}
+}
