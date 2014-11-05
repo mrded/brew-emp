@@ -89,14 +89,6 @@ curl -Lo /usr/local/etc/nginx/sites-available/xhprof.local https://raw.github.co
 ln -s /usr/local/etc/nginx/sites-available/xhprof.local /usr/local/etc/nginx/sites-enabled/xhprof.local
 sudo echo '127.0.0.1 xhprof.local' >>  /etc/hosts
 
-echo '✩✩✩✩ Mongo (for Xhprof) ✩✩✩✩'
-brew install mongodb
-sudo mkdir -p /data/db
-sudo chown -R `id -u` /data/db
-
-echo '✩✩✩✩ Xhprof ✩✩✩✩'
-brew install php${PHP_VERSION}-xhgui
-
 echo '✩✩✩✩ Drush ✩✩✩✩'
 brew install drush
 
