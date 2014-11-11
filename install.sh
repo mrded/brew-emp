@@ -11,6 +11,10 @@ case "$1" in
   PHP_VERSION='55' ;;
 *)
   PHP_VERSION='55' ;;
+"php56")
+  PHP_VERSION='56' ;;
+*)
+  PHP_VERSION='56' ;;
 esac
 
 echo "Your choice is PHP${PHP_VERSION}!"
@@ -26,7 +30,7 @@ brew install mysql
 mysql_install_db --verbose --user=`whoami` --basedir="$(brew --prefix mysql)" --datadir=/usr/local/var/mysql --tmpdir=/tmp
 
 echo '✩✩✩✩ NGINX ✩✩✩✩'
-brew install nginx
+brew install --with-passenger nginx
 
 echo '-> Download configs'
 mkdir /usr/local/etc/nginx/{common,sites-available,sites-enabled}
@@ -72,6 +76,8 @@ case "${PHP_VERSION}" in
   DOT_VERSION='5.4' ;;
 "55")
   DOT_VERSION='5.5' ;;
+"56")
+  DOT_VERSION='5.6' ;;
 esac
 
 echo 'xdebug.remote_enable=On' >>  /usr/local/etc/php/${DOT_VERSION}/conf.d/ext-xdebug.ini
