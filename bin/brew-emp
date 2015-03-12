@@ -5,7 +5,6 @@ case "$1" in
     mysql.server start
     sudo nginx
     sudo /usr/local/sbin/php-fpm&
-    mongod&
     launchctl load /usr/local/opt/redis/homebrew.mxcl.redis.plist
     memcached -d -m 30 -l 127.0.0.1 -p 11211
     java -jar $(brew --prefix solr)/libexec/example/start.jar&
@@ -14,20 +13,9 @@ case "$1" in
     mysql.server stop
     sudo nginx -s stop
     sudo pkill {php-fpm,memcached,redis-server}
-    sudo pkill mongod
-    ;;
-"restart")
-    mysql.server stop
-    mysql.server start
-
-    sudo nginx -s stop
-    sudo nginx
-
-    sudo pkill php-fpm
-    sudo /usr/local/sbin/php-fpm&
     ;;
 *)
-    echo 'Usage: brew-emp [start | stop | restart]'
+    echo 'Usage: brew-emp [start | stop]'
     ;;
 esac
 
