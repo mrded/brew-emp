@@ -25,9 +25,9 @@ brew tap homebrew/dupes
 brew tap josegonzalez/homebrew-php
 brew update
 
-echo '✩✩✩✩ MYSQL ✩✩✩✩'
-brew install mysql
-mysql_install_db --verbose --user=`whoami` --basedir="$(brew --prefix mysql)" --datadir=/usr/local/var/mysql --tmpdir=/tmp
+echo '✩✩✩✩ MYSQL (mariadb) ✩✩✩✩'
+brew install mariadb
+#mysql_install_db --verbose --user=`whoami` --basedir="$(brew --prefix mariadb)" --datadir=/usr/local/var/mysql --tmpdir=/tmp
 
 echo '✩✩✩✩ NGINX ✩✩✩✩'
 brew install --with-passenger nginx
