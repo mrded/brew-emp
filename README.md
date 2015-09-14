@@ -83,7 +83,7 @@ Source code: `/usr/local/Cellar/php54-xhprof/`
 
 **xhgui**: `/usr/local/Cellar/php54-xhgui/ee00acb/web/config/config.php`
 
-**MySQL**: `$(brew --prefix mysql)/my.cnf`
+**MySQL**: `/usr/local/etc/my.cnf`
 
 ### Handy projects
 * [launchrocket](https://github.com/jimbojsb/launchrocket) - a PrefPane to manage all your Homebrew-installed services.
