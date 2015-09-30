@@ -12,3 +12,7 @@ brew remove php53
 brew remove php54
 brew remove php55
 brew remove php56
+
+rm /usr/local/bin/brew-emp
+
+echo "Done!"
