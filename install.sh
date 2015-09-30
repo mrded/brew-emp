@@ -8,7 +8,9 @@ brew update
 echo '✩✩✩✩ Installing "dialog" to let you choose installation options ✩✩✩✩'
 brew install dialog
 
-OPTIONS=(
+BACKTITLE="(E)nginx + MySQL + PHP Installer"
+
+PHP_VERSIONS=(
   1 "5.3"
   2 "5.4"
   3 "5.5"
@@ -17,11 +19,11 @@ OPTIONS=(
 )
 
 CHOICE=$(dialog --clear \
-                --backtitle "(E)nginx + MySQL + PHP Installer" \
+                --backtitle "$BACKTITLE" \
                 --title "PHP version" \
                 --menu "Which version of PHP do you wish to install?" \
                 12 50 5 \
-                "${OPTIONS[@]}" \
+                "${PHP_VERSIONS[@]}" \
                 2>&1 >/dev/tty)
 clear
 
@@ -73,35 +75,59 @@ brew install freetype jpeg libpng gd
 brew install php${PHP_VERSION} --without-apache --with-mysql --with-fpm --without-snmp
 brew link --overwrite php${PHP_VERSION}
 
-echo '✩✩✩✩ Memcached ✩✩✩✩'
-brew install php${PHP_VERSION}-memcached
+AVAILABLE_PACKAGES=(
+  1 "Memcached" off
+  2 "Redis" on
+  3 "Xdebug" on
+  4 "Xhprof" off
+  5 "Drush" on
+)
 
-echo '✩✩✩✩ Redis ✩✩✩✩'
-brew install redis php${PHP_VERSION}-redis
+PACKAGES=$(dialog --separate-output \
+                  --backtitle "$BACKTITLE" \
+                  --checklist "Additional packages to install:" \
+                  12 50 5 \
+                  "${AVAILABLE_PACKAGES[@]}" \
+                  2>&1 >/dev/tty)
+clear
 
-echo '✩✩✩✩ Solr ✩✩✩✩'
-brew install solr
+for PACKAGE in $PACKAGES
+do
+  case $PACKAGE in
+    1)
+      echo '✩✩✩✩ Memcached ✩✩✩✩'
+      brew install php${PHP_VERSION}-memcached
+      ;;
+    2)
+      echo '✩✩✩✩ Redis ✩✩✩✩'
+      brew install redis php${PHP_VERSION}-redis
+      ;;
+    3)
+      echo '✩✩✩✩ Xdebug ✩✩✩✩'
+      brew install php${PHP_VERSION}-xdebug
 
-echo '✩✩✩✩ Xdebug ✩✩✩✩'
-brew install php${PHP_VERSION}-xdebug
-
-echo 'xdebug.remote_enable=On' >>  /usr/local/etc/php/${PHP_VERSION_WITH_DOT}/conf.d/ext-xdebug.ini
-echo 'xdebug.remote_host="localhost"' >>  /usr/local/etc/php/${PHP_VERSION_WITH_DOT}/conf.d/ext-xdebug.ini
-echo 'xdebug.remote_port=9002' >>  /usr/local/etc/php/${PHP_VERSION_WITH_DOT}/conf.d/ext-xdebug.ini
-echo 'xdebug.remote_handler="dbgp"' >>  /usr/local/etc/php/${PHP_VERSION_WITH_DOT}/conf.d/ext-xdebug.ini
-
-echo '✩✩✩✩ Xhprof ✩✩✩✩'
-brew install graphviz php${PHP_VERSION}-xhprof
-mkdir /tmp/xhprof
-chmod 777 /tmp/xhprof
-echo 'xhprof.output_dir=/tmp/xhprof' >>  /usr/local/etc/php/${PHP_VERSION_WITH_DOT}/conf.d/ext-xhprof.ini
-
-curl -Lo /usr/local/etc/nginx/sites-available/xhprof.local https://raw.github.com/mrded/brew-emp/master/conf/nginx/sites-available/xhprof.local
-ln -s /usr/local/etc/nginx/sites-available/xhprof.local /usr/local/etc/nginx/sites-enabled/xhprof.local
-sudo echo '127.0.0.1 xhprof.local' >>  /etc/hosts
-
-echo '✩✩✩✩ Drush ✩✩✩✩'
-brew install drush
+      echo 'xdebug.remote_enable=On' >>  /usr/local/etc/php/${PHP_VERSION_WITH_DOT}/conf.d/ext-xdebug.ini
+      echo 'xdebug.remote_host="localhost"' >>  /usr/local/etc/php/${PHP_VERSION_WITH_DOT}/conf.d/ext-xdebug.ini
+      echo 'xdebug.remote_port=9002' >>  /usr/local/etc/php/${PHP_VERSION_WITH_DOT}/conf.d/ext-xdebug.ini
+      echo 'xdebug.remote_handler="dbgp"' >>  /usr/local/etc/php/${PHP_VERSION_WITH_DOT}/conf.d/ext-xdebug.ini
+      ;;
+    4)
+      echo '✩✩✩✩ Xhprof ✩✩✩✩'
+      brew install graphviz php${PHP_VERSION}-xhprof
+      mkdir /tmp/xhprof
+      chmod 777 /tmp/xhprof
+      echo 'xhprof.output_dir=/tmp/xhprof' >>  /usr/local/etc/php/${PHP_VERSION_WITH_DOT}/conf.d/ext-xhprof.ini
+      
+      curl -Lo /usr/local/etc/nginx/sites-available/xhprof.local https://raw.github.com/mrded/brew-emp/master/conf/nginx/sites-available/xhprof.local
+      ln -s /usr/local/etc/nginx/sites-available/xhprof.local /usr/local/etc/nginx/sites-enabled/xhprof.local
+      sudo echo '127.0.0.1 xhprof.local' >>  /etc/hosts
+      ;;
+    5)
+      echo '✩✩✩✩ Drush ✩✩✩✩'
+      brew install drush
+      ;;
+  esac
+done
 
 echo '✩✩✩✩ Brew-emp ✩✩✩✩'
 curl -Lo /usr/local/bin/brew-emp https://raw.github.com/mrded/brew-emp/master/bin/brew-emp
