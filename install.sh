@@ -1,8 +1,8 @@
 #!/bin/bash
 
 echo '✩✩✩✩ Add Repositories ✩✩✩✩'
-# brew tap homebrew/dupes
-# brew tap josegonzalez/homebrew-php
+brew tap homebrew/dupes
+brew tap josegonzalez/homebrew-php
 brew update
 
 echo '✩✩✩✩ Installing "dialog" to let you choose installation options ✩✩✩✩'
