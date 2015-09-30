@@ -7,7 +7,6 @@ case "$1" in
     sudo /usr/local/sbin/php-fpm&
     launchctl load /usr/local/opt/redis/homebrew.mxcl.redis.plist
     memcached -d -m 30 -l 127.0.0.1 -p 11211
-    java -jar $(brew --prefix solr)/libexec/example/start.jar&
     ;;
 "stop")
     mysql.server stop
