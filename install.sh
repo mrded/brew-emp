@@ -1,29 +1,47 @@
 #!/bin/bash
 
-case "$1" in
-"php52")
-  PHP_VERSION='52' ;;
-"php53")
-  PHP_VERSION='53' ;;
-"php54")
-  PHP_VERSION='54' ;;
-"php55")
-  PHP_VERSION='55' ;;
-"php56")
-  PHP_VERSION='56' ;;
-"php70")
-  PHP_VERSION='70' ;;
-*)
-  PHP_VERSION='56' ;;
-esac
-
-echo "Your choice is PHP${PHP_VERSION}!"
-echo "----- ✄ -----------------------"
-
 echo '✩✩✩✩ Add Repositories ✩✩✩✩'
 brew tap homebrew/dupes
 brew tap josegonzalez/homebrew-php
 brew update
+
+echo '✩✩✩✩ Installing "dialog" to let you choose installation options ✩✩✩✩'
+brew install dialog
+
+OPTIONS=(
+  1 "5.3"
+  2 "5.4"
+  3 "5.5"
+  4 "5.6"
+  5 "7.0"
+)
+
+CHOICE=$(dialog --clear \
+                --backtitle "(E)nginx + MySQL + PHP Installer" \
+                --title "PHP version" \
+                --menu "Which version of PHP do you wish to install?" \
+                12 50 5 \
+                "${OPTIONS[@]}" \
+                2>&1 >/dev/tty)
+clear
+
+case $CHOICE in
+  "1")
+    PHP_VERSION='53'
+    PHP_VERSION_WITH_DOT='5.3' ;;
+  "2")
+    PHP_VERSION='54'
+    PHP_VERSION_WITH_DOT='5.4' ;;
+  "3")
+    PHP_VERSION='55'
+    PHP_VERSION_WITH_DOT='5.5' ;;
+  "4")
+    PHP_VERSION='56'
+    PHP_VERSION_WITH_DOT='5.6' ;;
+  "5")
+    PHP_VERSION='70'
+    PHP_VERSION_WITH_DOT='7.0' ;;
+esac
 
 echo '✩✩✩✩ MYSQL (mariadb) ✩✩✩✩'
 brew install mariadb
@@ -67,31 +85,16 @@ brew install solr
 echo '✩✩✩✩ Xdebug ✩✩✩✩'
 brew install php${PHP_VERSION}-xdebug
 
-case "${PHP_VERSION}" in
-"52")
-  DOT_VERSION='5.2' ;;
-"53")
-  DOT_VERSION='5.3' ;;
-"54")
-  DOT_VERSION='5.4' ;;
-"55")
-  DOT_VERSION='5.5' ;;
-"56")
-  DOT_VERSION='5.6' ;;
-"70")
-  DOT_VERSION='7.0' ;;
-esac
-
-echo 'xdebug.remote_enable=On' >>  /usr/local/etc/php/${DOT_VERSION}/conf.d/ext-xdebug.ini
-echo 'xdebug.remote_host="localhost"' >>  /usr/local/etc/php/${DOT_VERSION}/conf.d/ext-xdebug.ini
-echo 'xdebug.remote_port=9002' >>  /usr/local/etc/php/${DOT_VERSION}/conf.d/ext-xdebug.ini
-echo 'xdebug.remote_handler="dbgp"' >>  /usr/local/etc/php/${DOT_VERSION}/conf.d/ext-xdebug.ini
+echo 'xdebug.remote_enable=On' >>  /usr/local/etc/php/${PHP_VERSION_WITH_DOT}/conf.d/ext-xdebug.ini
+echo 'xdebug.remote_host="localhost"' >>  /usr/local/etc/php/${PHP_VERSION_WITH_DOT}/conf.d/ext-xdebug.ini
+echo 'xdebug.remote_port=9002' >>  /usr/local/etc/php/${PHP_VERSION_WITH_DOT}/conf.d/ext-xdebug.ini
+echo 'xdebug.remote_handler="dbgp"' >>  /usr/local/etc/php/${PHP_VERSION_WITH_DOT}/conf.d/ext-xdebug.ini
 
 echo '✩✩✩✩ Xhprof ✩✩✩✩'
 brew install graphviz php${PHP_VERSION}-xhprof
 mkdir /tmp/xhprof
 chmod 777 /tmp/xhprof
-echo 'xhprof.output_dir=/tmp/xhprof' >>  /usr/local/etc/php/${DOT_VERSION}/conf.d/ext-xhprof.ini
+echo 'xhprof.output_dir=/tmp/xhprof' >>  /usr/local/etc/php/${PHP_VERSION_WITH_DOT}/conf.d/ext-xhprof.ini
 
 curl -Lo /usr/local/etc/nginx/sites-available/xhprof.local https://raw.github.com/mrded/brew-emp/master/conf/nginx/sites-available/xhprof.local
 ln -s /usr/local/etc/nginx/sites-available/xhprof.local /usr/local/etc/nginx/sites-enabled/xhprof.local
