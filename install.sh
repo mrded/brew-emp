@@ -15,7 +15,6 @@ PHP_VERSIONS=(
   2 "5.4"
   3 "5.5"
   4 "5.6"
-  5 "7.0"
 )
 
 CHOICE=$(dialog --clear \
@@ -28,21 +27,22 @@ CHOICE=$(dialog --clear \
 clear
 
 case $CHOICE in
-  "1")
+  1)
     PHP_VERSION='53'
-    PHP_VERSION_WITH_DOT='5.3' ;;
-  "2")
+    PHP_VERSION_WITH_DOT='5.3'
+    ;;
+  2)
     PHP_VERSION='54'
-    PHP_VERSION_WITH_DOT='5.4' ;;
-  "3")
+    PHP_VERSION_WITH_DOT='5.4'
+    ;;
+  3)
     PHP_VERSION='55'
-    PHP_VERSION_WITH_DOT='5.5' ;;
-  "4")
+    PHP_VERSION_WITH_DOT='5.5'
+    ;;
+  4)
     PHP_VERSION='56'
-    PHP_VERSION_WITH_DOT='5.6' ;;
-  "5")
-    PHP_VERSION='70'
-    PHP_VERSION_WITH_DOT='7.0' ;;
+    PHP_VERSION_WITH_DOT='5.6'
+    ;;
 esac
 
 echo '✩✩✩✩ MYSQL (mariadb) ✩✩✩✩'
