@@ -11,7 +11,6 @@ This script will install and setup **Nginx** + **MySQL** + **PHP** through **Hom
 ## Requirements
 
 * [Homebrew](http://mxcl.github.com/homebrew/)
-* Snow Leopard, Lion, Mountain Lion. Untested everywhere else
  
 ## Installation
 `curl -L https://raw.github.com/mrded/brew-emp/master/tools/install.sh | bash`
@@ -55,7 +54,7 @@ Add `127.0.0.1 mysite.local` to `/etc/hosts`.
 
     drush dl devel
     drush en devel
-    drush vset devel_xhprof_directory "/usr/local/Cellar/php54-xhprof/254eb24"
+    drush vset devel_xhprof_directory "/usr/local/Cellar/php56-xhprof/254eb24"
     drush vset devel_xhprof_url "http://xhprof.local"
     drush vset devel_xhprof_enabled 1
 
@@ -77,17 +76,17 @@ Remote port is 9002
 
 **FastCGI**: `/usr/local/etc/nginx/fastcgi.conf`
 
-**PHP**: `/usr/local/etc/php/5.4/php.ini`
+**PHP**: `/usr/local/etc/php/5.6/php.ini`
 
 **Redis**: `/usr/local/etc/redis.conf`
 
-**Xdebug**: `/usr/local/etc/php/5.4/conf.d/ext-xdebug.ini`
+**Xdebug**: `/usr/local/etc/php/5.6/conf.d/ext-xdebug.ini`
 
-**xhprof**: `/usr/local/etc/php/5.4/conf.d/ext-xhprof.ini`
+**xhprof**: `/usr/local/etc/php/5.6/conf.d/ext-xhprof.ini`
 
-Source code: `/usr/local/Cellar/php54-xhprof/`
+Source code: `/usr/local/Cellar/php56-xhprof/`
 
-**xhgui**: `/usr/local/Cellar/php54-xhgui/ee00acb/web/config/config.php`
+**xhgui**: `/usr/local/Cellar/php56-xhgui/ee00acb/web/config/config.php`
 
 **MySQL**: `/usr/local/etc/my.cnf`
 
