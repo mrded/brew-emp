@@ -50,14 +50,6 @@ Enable virtual host:
 
 Add `127.0.0.1 mysite.local` to `/etc/hosts`.
 
-## Enable Xhprof with Drupal 7
-
-    drush dl devel
-    drush en devel
-    drush vset devel_xhprof_directory "/usr/local/Cellar/php56-xhprof/254eb24"
-    drush vset devel_xhprof_url "http://xhprof.local"
-    drush vset devel_xhprof_enabled 1
-
 ## Default Settings
 
 ### MySQL
@@ -81,12 +73,6 @@ Remote port is 9002
 **Redis**: `/usr/local/etc/redis.conf`
 
 **Xdebug**: `/usr/local/etc/php/5.6/conf.d/ext-xdebug.ini`
-
-**xhprof**: `/usr/local/etc/php/5.6/conf.d/ext-xhprof.ini`
-
-Source code: `/usr/local/Cellar/php56-xhprof/`
-
-**xhgui**: `/usr/local/Cellar/php56-xhgui/ee00acb/web/config/config.php`
 
 **MySQL**: `/usr/local/etc/my.cnf`
 

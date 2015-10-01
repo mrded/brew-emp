@@ -81,14 +81,13 @@ AVAILABLE_PACKAGES=(
   1 "Memcached" off
   2 "Redis" on
   3 "Xdebug" on
-  4 "Xhprof" off
-  5 "Drush" on
+  4 "Drush" on
 )
 
 PACKAGES=$(dialog --separate-output \
                   --backtitle "$BACKTITLE" \
                   --checklist "Additional packages to install:" \
-                  12 50 5 \
+                  12 50 4 \
                   "${AVAILABLE_PACKAGES[@]}" \
                   2>&1 >/dev/tty)
 clear
@@ -114,17 +113,6 @@ do
       echo 'xdebug.remote_handler="dbgp"' >>  /usr/local/etc/php/${PHP_VERSION_WITH_DOT}/conf.d/ext-xdebug.ini
       ;;
     4)
-      echo '✩✩✩✩ Xhprof ✩✩✩✩'
-      brew install graphviz php${PHP_VERSION}-xhprof
-      mkdir /tmp/xhprof
-      chmod 777 /tmp/xhprof
-      echo 'xhprof.output_dir=/tmp/xhprof' >>  /usr/local/etc/php/${PHP_VERSION_WITH_DOT}/conf.d/ext-xhprof.ini
-      
-      curl -Lo /usr/local/etc/nginx/sites-available/xhprof.local https://raw.github.com/mrded/brew-emp/master/conf/nginx/sites-available/xhprof.local
-      ln -s /usr/local/etc/nginx/sites-available/xhprof.local /usr/local/etc/nginx/sites-enabled/xhprof.local
-      sudo echo '127.0.0.1 xhprof.local' >>  /etc/hosts
-      ;;
-    5)
       echo '✩✩✩✩ Drush ✩✩✩✩'
       brew install drush
       ;;
