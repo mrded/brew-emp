@@ -16,6 +16,12 @@ This script will install and setup **Nginx** + **MySQL** + **PHP** through **Hom
 ## Installation
 `curl -L https://raw.github.com/mrded/brew-emp/master/install.sh | bash`
 
+## Uninstall
+`curl -L https://raw.github.com/mrded/brew-emp/master/uninstall.sh | bash`
+
+## Update PHP version
+`curl -L https://raw.github.com/mrded/brew-emp/master/update.sh | bash`
+
 ## Usage
 `brew-emp [start | stop | restart]`
 
