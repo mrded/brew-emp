@@ -36,14 +36,18 @@
 
 <h3>Installation</h3>
 <p>This script will install and setup Nginx + MySQL + PHP through Homebrew.</p>
-<pre><code>curl -L https://raw.github.com/mrded/brew-emp/master/install.sh | bash</code></pre>
+<pre><code>curl -L https://raw.github.com/mrded/brew-emp/master/tools/install.sh | bash</code></pre>
+
+<h3>Update PHP version</h3>
+<pre><code>curl -L https://raw.github.com/mrded/brew-emp/master/tools/update.sh | bash</code></pre>
+
+<h3>Uninstall</h3>
+<pre><code>curl -L https://raw.github.com/mrded/brew-emp/master/tools/uninstall.sh | bash</code></pre>
 
 <h3>Usage</h3>
 <pre><code>brew-emp [start | stop | restart]</code></pre>
 
-<h3>Creating VirtualHost</h3>
-<p>For example let's create virtual host for Drupal 'mysite'.</p>
-
+<h3>Example of creating new VirtualHost</h3>
 <p>Copy Drupal preset:</p>
 <pre><code>cp /usr/local/etc/nginx/sites-available/drupal.local /usr/local/etc/nginx/sites-available/mysite.local</code></pre>
 
@@ -79,9 +83,9 @@ Remote port is 9002</p>
 <p>
 <strong>Nginx:</strong> /usr/local/etc/nginx/nginx.conf<br/>
 <strong>FastCGI:</strong> /usr/local/etc/nginx/fastcgi.conf<br/>
-<strong>PHP:</strong> /usr/local/etc/php/5.3/php.ini<br/>
+<strong>PHP:</strong> /usr/local/etc/php/5.6/php.ini<br/>
 <strong>Redis:</strong> /usr/local/etc/redis.conf<br/>
-<strong>Xdebug:</strong> /usr/local/etc/php/5.3/conf.d/ext-xdebug.ini<br/>
+<strong>Xdebug:</strong> /usr/local/etc/php/5.6/conf.d/ext-xdebug.ini<br/>
 <strong>MySQL:</strong> $(brew --prefix mysql)/my.cnf
 </p>
       </section>
