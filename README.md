@@ -14,13 +14,13 @@ This script will install and setup **Nginx** + **MySQL** + **PHP** through **Hom
 * Snow Leopard, Lion, Mountain Lion. Untested everywhere else
  
 ## Installation
-`curl -L https://raw.github.com/mrded/brew-emp/master/install.sh | bash`
+`curl -L https://raw.github.com/mrded/brew-emp/master/tools/install.sh | bash`
 
 ## Uninstall
-`curl -L https://raw.github.com/mrded/brew-emp/master/uninstall.sh | bash`
+`curl -L https://raw.github.com/mrded/brew-emp/master/tools/uninstall.sh | bash`
 
 ## Update PHP version
-`curl -L https://raw.github.com/mrded/brew-emp/master/update.sh | bash`
+`curl -L https://raw.github.com/mrded/brew-emp/master/tools/update.sh | bash`
 
 ## Usage
 `brew-emp [start | stop | restart]`
