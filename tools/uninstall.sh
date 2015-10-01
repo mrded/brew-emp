@@ -1,4 +1,6 @@
 #!/bin/bash
+brew-emp stop
+
 brew remove mariadb
 brew remove nginx
 

@@ -1,4 +1,6 @@
 #!/bin/bash
+brew-emp stop
+
 echo '✩✩✩✩ Uninstall php ✩✩✩✩'
 
 PHP_VERSIONS=( 53 54 55 56 )
