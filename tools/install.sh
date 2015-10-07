@@ -51,6 +51,7 @@ echo '✩✩✩✩ MYSQL (mariadb) ✩✩✩✩'
 brew install mariadb
 #mysql_install_db --verbose --user=`whoami` --basedir="$(brew --prefix mariadb)" --datadir=/usr/local/var/mysql --tmpdir=/tmp
 curl -Lo /usr/local/etc/my.cnf https://raw.github.com/mrded/brew-emp/master/conf/mysql/my.cnf
+chmod 644 /usr/local/etc/my.cnf
 
 echo '✩✩✩✩ NGINX ✩✩✩✩'
 brew install --with-passenger nginx
