@@ -5,6 +5,7 @@ brew untap josegonzalez/homebrew-php
 brew tap homebrew/dupes
 brew tap homebrew/versions
 brew tap homebrew/homebrew-php
+brew tap homebrew/versions
 brew update
 
 echo '✩✩✩✩ Installing "dialog" to let you choose installation options ✩✩✩✩'
@@ -48,7 +49,7 @@ case $CHOICE in
 esac
 
 echo '✩✩✩✩ MYSQL ✩✩✩✩'
-brew install mysql
+brew install mysql55
 #mysql_install_db --verbose --user=`whoami` --basedir="$(brew --prefix mysql)" --datadir=/usr/local/var/mysql --tmpdir=/tmp
 curl -Lo /usr/local/etc/my.cnf https://raw.github.com/mrded/brew-emp/master/conf/mysql/my.cnf
 chmod 644 /usr/local/etc/my.cnf
