@@ -47,3 +47,10 @@ location ~* \.(js|css|png|jpg|jpeg|gif|ico)$ {
         expires max;
         log_not_found off;
 }
+
+# Support for http://drupal.org/project/js module.
+location ^~ /js/ {
+  location ~* ^/js/ {
+    rewrite ^/(.*)$ /js.php?q=$1 last;
+  }
+}
