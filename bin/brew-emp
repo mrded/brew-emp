@@ -2,14 +2,14 @@
 
 case "$1" in
 "start")
-    mysql.server start
+    /usr/local/opt/mysql55/bin/mysql.server start
     sudo nginx
     sudo /usr/local/sbin/php-fpm&
     launchctl load /usr/local/opt/redis/homebrew.mxcl.redis.plist
     memcached -d -m 30 -l 127.0.0.1 -p 11211
     ;;
 "stop")
-    mysql.server stop
+    /usr/local/opt/mysql55/bin/mysql.server stop
     sudo nginx -s stop
     sudo pkill {php-fpm,memcached,redis-server}
     ;;
