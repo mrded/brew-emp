@@ -2,15 +2,15 @@
 
 case "$1" in
 "start")
-    /usr/local/opt/mysql55/bin/mysql.server start
-    sudo nginx
+    brew services start mysql@5.5
+    brew services start nginx
     sudo /usr/local/sbin/php-fpm&
     memcached -d -m 30 -l 127.0.0.1 -p 11211
     brew services start redis
     ;;
 "stop")
-    /usr/local/opt/mysql55/bin/mysql.server stop
-    sudo nginx -s stop
+    brew services stop mysql@5.5
+    brew services stop nginx
     sudo pkill {php-fpm,memcached}
     brew services stop redis
     ;;
