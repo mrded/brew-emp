@@ -2,17 +2,17 @@
 
 case "$1" in
 "start")
-    brew services start mysql@5.5
-    brew services start nginx
+    sudo brew services start mysql@5.5
+    sudo brew services start nginx
     sudo /usr/local/sbin/php-fpm&
     memcached -d -m 30 -l 127.0.0.1 -p 11211
-    brew services start redis
+    sudo brew services start redis
     ;;
 "stop")
-    brew services stop mysql@5.5
-    brew services stop nginx
+    sudo brew services stop mysql@5.5
+    sudo brew services stop nginx
     sudo pkill {php-fpm,memcached}
-    brew services stop redis
+    sudo brew services stop redis
     ;;
 *)
     echo 'Usage: brew-emp [start | stop]'
