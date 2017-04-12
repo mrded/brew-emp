@@ -2,20 +2,24 @@
 
 case "$1" in
 "start")
-    sudo brew services start mysql@5.5
-    sudo brew services start nginx
-    sudo /usr/local/sbin/php-fpm&
-    memcached -d -m 30 -l 127.0.0.1 -p 11211
-    sudo brew services start redis
-    ;;
+  sudo brew services start nginx
+  sudo brew services start php56 
+  sudo brew services start redis
+  sudo brew services start memcached
+  ;;
 "stop")
-    sudo brew services stop mysql@5.5
-    sudo brew services stop nginx
-    sudo pkill {php-fpm,memcached}
-    sudo brew services stop redis
-    ;;
+  sudo brew services stop nginx
+  sudo brew services stop php56 
+  sudo brew services stop redis
+  sudo brew services stop memcached
+  ;;
+"restart")
+  sudo brew services restart nginx
+  sudo brew services restart php56 
+  sudo brew services restart redis
+  sudo brew services restart memcached
+  ;;
 *)
-    echo 'Usage: brew-emp [start | stop]'
-    ;;
+  echo 'Usage: brew-emp [start | stop | restart]'
+  ;;
 esac
-
